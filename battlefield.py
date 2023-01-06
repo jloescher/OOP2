@@ -84,6 +84,7 @@ class Battlefield:
 
     def start_battle(self):
         while True:
+            self.round_count += 1
             for attacker in self.participants:
                 if isinstance(attacker, Fleet):
                     # Choose a weapon for each robot in the fleet
@@ -114,6 +115,8 @@ class Battlefield:
                         break
                     target = random.choice(targets)
                     attacker.attack(target)
+
+            print(f"Round {self.round_count}")
 
             # Check if the battle has ended
             winner = self.conclude_battle()
