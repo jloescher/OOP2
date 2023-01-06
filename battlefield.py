@@ -93,6 +93,9 @@ class Battlefield:
                     # Attack with all robots in the fleet
                     for robot in attacker.robots:
                         target = self.select_target(robot, self.participants)
+                        print(
+                            f"{robot.name} attacks {target.name} with {robot.weapon.name} causing {robot.weapon.attack_power} damage."
+                        )
                         robot.attack(target)
 
                 elif isinstance(attacker, Herd):
@@ -102,6 +105,9 @@ class Battlefield:
                     # Attack with all dinosaurs in the herd
                     for dino in attacker.dinosaurs:
                         target = self.select_target(dino, self.participants)
+                        print(
+                            f"{dino.name} attacks {target.name} with {dino.weapon.name} causing {dino.weapon.attack_power} damage."
+                        )
                         dino.attack(target)
                 elif isinstance(attacker, (Robot, Dinosaur)) and attacker.health <= 0:
                     continue
