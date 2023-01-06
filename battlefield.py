@@ -120,6 +120,9 @@ class Battlefield:
                     if not targets:
                         break
                     target = random.choice(targets)
+                    print(
+                        f"{attacker.name} attacks {target.name} with {attacker.weapon.name} causing {attacker.weapon.attack_power} damage."
+                    )
                     attacker.attack(target)
 
             print(f"Round {self.round_count}")
